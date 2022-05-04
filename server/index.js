@@ -6,16 +6,14 @@ import dotenv from "dotenv";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const SERVER_PORT = process.env.NODE_ENV === "development"
-  ? 5000
-  : 8080;
+const SERVER_PORT = process.env.NODE_ENV === "development" ? 5000 : 8080;
 
 const app = express();
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 
 app.get("/api", (req, res) => {
-  res.status(200).json({api: "api here!"});
+  res.status(200).json({ message: `the API at port ${SERVER_PORT} is connected` });
 });
 
 app.get("/", (req, res) => {
@@ -28,4 +26,4 @@ app.use((req, res, next) => {
 
 app.listen(SERVER_PORT, () => {
   console.log(`server started on port ${SERVER_PORT}`);
-})
+});
