@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Express-React Boiler
+
+ExpressJS server that serves `create-react-app` dev-server (with API proxy) for development, or serves the built/static `create-react-app` for staging/production.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
