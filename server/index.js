@@ -3,6 +3,8 @@ import { fileURLToPath } from "url";
 import path from "path";
 import dotenv from "dotenv";
 
+import apiRouter from "./routes/api/apiRouter.js";
+
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,9 +14,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 
-app.get("/api", (req, res) => {
-  res.status(200).json({ message: `the API at port ${SERVER_PORT} is connected` });
-});
+app.use("/api", apiRouter);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

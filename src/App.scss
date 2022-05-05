@@ -1,0 +1,51 @@
+@import "./colors.scss";
+
+.noUnderline:link,
+.noUnderline:visited,
+.noUnderline:hover,
+.noUnderline:active {
+  text-decoration: none;
+}
+
+.hoverOnly:link,
+.hoverOnly:visited {
+  color: $blue;
+}
+
+a:link, a:visited {
+  color: $blue;
+}
+
+a.active {
+  color: $purple;
+}
+
+a:hover {
+  color: lighten($blue, 10%)
+}
+
+a.active:hover {
+  color: lighten($purple, 8%);
+}
+
+.App {
+  text-align: center;
+}
+
+.NavBar {
+  background-color: grey;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar nav {
+  display: flex;
+}
+
+.NavBar h1,
+.NavBar p {
+  margin: 0;
+  padding: 0 3px;
+  line-height: 30px;
+}

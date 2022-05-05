@@ -1,10 +1,15 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Routes, useParams, BrowserRouter } from "react-router-dom";
+import { Redirect, useEffect, useState } from "react";
+import NavBar from "./containers/NavBar.js";
+import TestPage from "./containers/TestPage.js";
+
+import "./App.scss";
 
 const App = () => {
-  const [apiTest, setApiTest] = useState("");
+  const [apiTest, setApiTest] = useState({
+    pages: [],
+    message: ""
+  });
 
   useEffect(() => {
     fetchFromAPI();
@@ -17,23 +22,22 @@ const App = () => {
         throw new Error(`${response.status} (${response.statusText})`);
       }
       const json = await response.json();
-      setApiTest(json.message);
+      setApiTest(json);
     } catch (error) {}
   };
 
-  const apiTestPrint = apiTest.length
-    ? apiTest
-    : "awaiting API...";
+  const apiTestPrint = apiTest.message.length ? apiTest.message : "awaiting API...";
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<h3>{apiTestPrint}</h3>} />
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<NavBar pages={apiTest.pages} message={apiTestPrint} />} />
         </Routes>
         <Routes>
-          <Route path="*" element={<h1>this is the react app</h1>} />
+          <Route exact path="/" element={<h1>this is the react app</h1>} />
+          <Route path="/tests/:id" element={<TestPage/>} />
+          <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
