@@ -23,4 +23,5 @@ It correctly bundles React in production mode and optimizes the build for the be
 Because all API requests will now hit the Express app directly and not by proxy, no front-end request pathing need be altered.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+
+Have fun!
