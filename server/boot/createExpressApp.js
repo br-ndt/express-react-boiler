@@ -7,18 +7,16 @@ const createExpressApp = (serverFileName) => {
   const app = express();
   app.use(express.json());
   
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(server__dirname, "public", "index.html"));
-  });
-  
-  app.use((req, res, next) => {
-    res.sendFile(path.join(server__dirname, "..", "build", "index.html"));
-  });
-  
   if(process.env.NODE_ENV === "development") {
     app.use(express.static("public"));
+    app.get("/", (req, res) => {
+      res.sendFile(path.join(server__dirname, "public", "index.html"));
+    });
   } else {
     app.use(express.static(path.join(server__dirname, "..", "build")));
+    app.get("/", (req, res) => {
+      res.sendFile(path.join(server__dirname, "..", "build", "index.html"));
+    });
   }
   
   app.use("/api", apiRouter);
