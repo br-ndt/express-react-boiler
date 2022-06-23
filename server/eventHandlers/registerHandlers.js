@@ -1,5 +1,3 @@
-const registerHandlers = (io, socket) => {
-
-}
+const registerHandlers = (io, socket) => {};
 
 export default registerHandlers;
