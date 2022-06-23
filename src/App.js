@@ -1,7 +1,10 @@
-import { Route, Routes, useParams, BrowserRouter } from "react-router-dom";
-import { Redirect, useEffect, useState } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SocketProvider from "./contextProviders/SocketProvider.js";
 import NavBar from "./containers/NavBar.js";
-import TestPage from "./containers/TestPage.js";
+import Chat from "./containers/Chat.js";
+
+import TestPage from "./pages/TestPage.js";
 
 import "./App.scss";
 
@@ -40,6 +43,9 @@ const App = () => {
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </BrowserRouter>
+      <SocketProvider>
+        <Chat/>
+      </SocketProvider>
     </div>
   );
 };
