@@ -23,8 +23,6 @@ const io = new Server(server, {
   path: "/ws",
 });
 
-server.on("upgrade", WS_PROXY.upgrade);
-
 io.on("connection", (socket) => {
   onSocketConnection(io, socket);
 });
@@ -33,3 +31,4 @@ server.listen(SERVER_PORT, "0.0.0.0", (error) => {
   if (error) console.log(error);
   console.log(`server started on port ${SERVER_PORT}`);
 });
+server.on("upgrade", WS_PROXY.upgrade);
