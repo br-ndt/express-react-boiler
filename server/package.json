@@ -5,14 +5,17 @@
   "type": "module",
   "author": "Tyler Brandt br.ndt@gmail.com",
   "scripts": {
-    "stage": "NODE_ENV=staging nodemon index.js",
-    "dev": "NODE_ENV=development nodemon index.js",
+    "stage": "yarn cross-env NODE_ENV=staging yarn nodemon index.js",
+    "dev": "yarn cross-env NODE_ENV=development yarn nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "dependencies": {
     "dotenv": "~16.0.0",
-    "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.18"
   }
 }
