@@ -15,13 +15,9 @@ const SOCKET_ORIGIN =
     ? `http://localhost:3000`
     : `http://localhost:${SERVER_PORT}`;
 
-const server = createServer(createExpressApp(__filename));
-const io = new Server(server, {
-  cors: {
-    origin: SOCKET_ORIGIN,
-    methods: ["GET", "POST"],
-  },
-});
+const express = createExpressApp(__filename);
+const server = createServer(express);
+const io = new Server(server);
 
 io.on("connection", (socket) => {
   onSocketConnection(io, socket);
