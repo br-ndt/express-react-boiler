@@ -16,7 +16,7 @@ const SERVER_HOST =
 const express = createExpressApp(__filename);
 const server = createServer(express);
 const io = new Server(server, {
-  path: "/ws/",
+  path: "/ws",
 });
 
 io.on("connection", (socket) => {
