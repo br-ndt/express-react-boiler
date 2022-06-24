@@ -1,6 +1,6 @@
 const registerClientHandlers = (socket, socketTimeout) => {
   socket.on("connect", () => {
-    
+    console.log("ok");
   });
 
   socket.on("connect_error", (error) => {
