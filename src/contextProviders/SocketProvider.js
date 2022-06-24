@@ -1,31 +1,33 @@
-import { createContext, useEffect, useRef } from "react";
-import { io } from "socket.io-client";
+import { createContext, useEffect, useRef, useState } from "react";
+import socketIO from "socket.io-client";
 import registerClientHandlers from "../services/socket/registerClientHandlers.js";
 
 export const SocketContext = createContext({});
 
 const SocketProvider = ({ children }) => {
-  const socket = useRef({});
+  const [socket, setSocket] = useState({});
 
   useEffect(() => {
     let socketTimeout;
 
-    socket.current = io(window.location.origin, {
+    const newSocket = socketIO(window.location.origin, {
       path: "/ws/",
     });
-
-    registerClientHandlers(socket.current, socketTimeout);
-
+    registerClientHandlers(newSocket, socketTimeout);
+    setSocket(newSocket);
+    
     return () => {
       if (socketTimeout) clearTimeout(socketTimeout);
-      socket.current.disconnect();
-    };
-  }, []);
+      newSocket.close();
+    }
+  }, [setSocket])
+
+  console.log(socket);
 
   return (
-    <SocketContext.Provider value={socket.current}>
+    <SocketContext.Provider value={socket}>
       {children}
-    </SocketContext.Provider>
+    </SocketContext.Provider>\
   );
 };
 
