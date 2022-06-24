@@ -9,11 +9,13 @@ const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     let socketTimeout;
+
     const newSocket = socketIO(window.location.origin, {
-      path: "/ws",
+      path: "/ws/",
     });
     registerClientHandlers(newSocket, socketTimeout);
     setSocket(newSocket);
+    
     return () => {
       if (socketTimeout) clearTimeout(socketTimeout);
       newSocket.close();
@@ -23,7 +25,9 @@ const SocketProvider = ({ children }) => {
   console.log(socket);
 
   return (
-    <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
+    <SocketContext.Provider value={socket}>
+      {children}
+    </SocketContext.Provider>\
   );
 };
 
