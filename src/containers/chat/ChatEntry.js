@@ -5,13 +5,24 @@ const ChatEntry = ({ sendMessage }) => {
 
   return (
     <section className="chatEntry">
-      <input type="submit" value="Enter" onSubmit={(e) => sendMessage(e, message)}></input>
-      <input type="text" onChange={(e) => {
-        e.preventDefault();
-        setMessage(e.currentTarget.value);
-      }}/>
+      <input
+        type="button"
+        value="Enter"
+        onClick={(e) => {
+          e.preventDefault();
+          sendMessage(e, message);
+          setMessage("");
+        }}
+      ></input>
+      <input
+        type="text"
+        onChange={(e) => {
+          setMessage(e.currentTarget.value);
+        }}
+        value={message}
+      />
     </section>
-  )
-}
+  );
+};
 
 export default ChatEntry;

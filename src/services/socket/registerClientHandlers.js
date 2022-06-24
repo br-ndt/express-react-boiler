@@ -7,6 +7,10 @@ const registerClientHandlers = (socket, socketTimeout) => {
     console.log(`connect_error due to ${error.message}`);
     socketTimeout = setTimeout(() => socket.connect(), 5000);
   });
+
+  socket.on("disconnect", () => {
+    console.log("socket disconnected");
+  })
 }
 
 export default registerClientHandlers;

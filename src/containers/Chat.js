@@ -13,10 +13,18 @@ const Chat = () => {
         setMessages([...messages, message])
       });
     }
-  }, [socket]);
+    return () => {
+      if(socket) {
+        socket.off("messageSent");
+      }
+    }
+  }, [socket, messages]);
 
-  const sendMessage = () => {
-
+  const sendMessage = (event, message) => {
+    if(socket) {
+      console.log(socket.id, message);
+      socket.emit("userSendsMessage", message);
+    }
   }
 
   const messageList = messages.map((message, index) => {

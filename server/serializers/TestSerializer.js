@@ -30,8 +30,6 @@ class TestSerializer {
   }
 
   static getIndividualTest(testId) {
-    console.log(testData.pages.filter(test => test.id == testId)[0]);
-
     return testData.pages.filter(test => test.id == testId)[0];
   }
 }

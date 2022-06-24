@@ -12,6 +12,7 @@ const SocketProvider = ({ children }) => {
 
     const newSocket = socketIO(window.location.origin, {
       path: "/ws/",
+      transports: ["websocket"]
     });
     registerClientHandlers(newSocket, socketTimeout);
     setSocket(newSocket);
