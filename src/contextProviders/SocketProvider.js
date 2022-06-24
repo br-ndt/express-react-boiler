@@ -5,7 +5,7 @@ import registerClientHandlers from "../services/socket/registerClientHandlers.js
 export const SocketContext = createContext({});
 
 const SocketProvider = ({ children }) => {
-  const [socket, setSocket] = useState({});
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     let socketTimeout;
