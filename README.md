@@ -1,6 +1,7 @@
 # Express-React Boiler
 
 ExpressJS app that serves `create-react-app` dev-server (with API proxy) for development, or serves the built/static `create-react-app` for staging/production.
+The server is configured to receive WebSocket connections via the included [socket.io library](https://github.com/socketio/socket.io), which can be tested via the chat form.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
