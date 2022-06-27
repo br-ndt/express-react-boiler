@@ -22,6 +22,6 @@ Builds the app for production to the `build` folder, then serves it staticly fro
 It correctly bundles React in production mode and optimizes the build for the best performance.\
 Because all API requests will now hit the Express app directly and not by proxy, no front-end request pathing need be altered.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.
 
 Have fun!
