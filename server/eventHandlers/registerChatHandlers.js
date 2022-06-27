@@ -4,7 +4,6 @@ const registerChatHandlers = (io, socket) => {
       sender: socket.id,
       content: message,
     };
-    console.log(serializedMessage);
     io.emit("messageSent", serializedMessage);
   });
 };
