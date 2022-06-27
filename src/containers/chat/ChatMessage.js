@@ -1,7 +1,7 @@
 const ChatMessage = ({ data }) => {
   return (
-    <p>
-      <span>{data.sender}</span>:<span>{data.content}</span>
+    <p className="message">
+      <span className="sender">{data.sender}</span>:<span className="content">{data.content}</span>
     </p>
   );
 };

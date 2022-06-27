@@ -3,7 +3,7 @@ import express from "express";
 
 import apiRouter from "../routes/api/apiRouter.js";
 
-const createExpressApp = (serverFileName) => {
+const createExpressApp = (serverFileName, websocketProxy) => {
   const server__dirname = path.dirname(serverFileName);
 
   const app = express();

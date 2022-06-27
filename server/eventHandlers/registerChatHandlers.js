@@ -1,5 +1,5 @@
 const registerChatHandlers = (io, socket) => {
-  io.on("userSendsMessage", (message) => {
+  socket.on("userSendsMessage", (message) => {
     const serializedMessage = {
       sender: socket.id,
       content: message,

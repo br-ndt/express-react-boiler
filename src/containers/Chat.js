@@ -22,7 +22,7 @@ const Chat = () => {
 
   const sendMessage = (event, message) => {
     if(socket) {
-      console.log(socket.id, message);
+      console.log(socket);
       socket.emit("userSendsMessage", message);
     }
   }
@@ -32,7 +32,7 @@ const Chat = () => {
   });
 
   return (
-    <section className="chat">
+    <section className="Chat">
       <div className="chatBody">
         {messageList}
       </div>
