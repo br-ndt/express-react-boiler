@@ -1,0 +1,19 @@
+@import "../imports/colors.scss";
+
+.NavBar {
+  background-color: $grey;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+  nav {
+    display: flex;
+  }
+
+  h1,
+  p {
+    margin: 0;
+    padding: 0 3px;
+    line-height: 30px;
+  }
+}

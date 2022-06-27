@@ -2,8 +2,7 @@ import { Route, Routes, useParams, BrowserRouter } from "react-router-dom";
 import { Redirect, useEffect, useState } from "react";
 import NavBar from "./containers/NavBar.js";
 import TestPage from "./containers/TestPage.js";
-
-import "./App.scss";
+import "./scss/components/App.scss";
 
 const App = () => {
   const [apiTest, setApiTest] = useState({
