@@ -15,14 +15,7 @@ const SERVER_HOST =
 
 const express = createExpressApp(__filename);
 const server = createServer(express);
-const io = new Server(server, {
-  cors: {
-    origin: `http${SERVER_HOST !== "localhost" ? "s" : ""}://${SERVER_HOST}${
-      SERVER_HOST === "localhost" ? ":3000" : ""
-    }`,
-    methods: ["GET", "POST"],
-  },
-});
+const io = new Server(server);
 
 io.on("connection", (socket) => {
   onSocketConnection(io, socket);
