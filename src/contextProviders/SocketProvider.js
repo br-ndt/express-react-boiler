@@ -6,8 +6,8 @@ import registerClientHandlers from "../services/socket/registerClientHandlers.js
 export const SocketContext = createContext({});
 
 const SocketProvider = ({ children }) => {
-  const socket = useRef(socketIO({ transports: ["websocket"] }));
-
+  const socket = useRef(socketIO(socketEndpoint, { transports: ["websocket"] }));
+  registerClientHandlers(socket.current)
   console.log(socket.current);
 
   return (

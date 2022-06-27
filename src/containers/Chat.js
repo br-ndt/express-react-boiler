@@ -29,7 +29,6 @@ const Chat = () => {
   }
 
   const messageList = messages.map((message, index) => {
-    console.log(message.sender === socket.id);
     return <ChatMessage key={index} data={message} isOwner={message.sender === socket.id} />;
   });
 

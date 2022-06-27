@@ -9,6 +9,7 @@ const registerClientHandlers = (socket, socketTimeout) => {
   });
 
   socket.on("disconnect", () => {
+    if(socketTimeout) clearTimeout(socketTimeout);
     console.log("socket disconnected");
   })
 }
