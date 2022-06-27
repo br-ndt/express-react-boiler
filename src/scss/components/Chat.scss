@@ -1,0 +1,35 @@
+@import "../imports/colors.scss";
+
+.Chat {
+  margin: 0 auto;
+  padding: 10px;
+  width: 60vw;
+  border-radius: 10px;
+  border: 2px solid $grey;
+
+  .chatBody {
+    .message {
+      text-align: left;
+      .sender {
+        margin-right: 5px;
+        font-weight: 650;
+        &.thisUser {
+          color: $purple;
+        }
+      }
+      .content {
+        font-weight: 350;
+      }
+    }
+  }
+
+  .ChatEntry {
+    width: 100%;
+    .submit {
+      margin-right: 5px;
+    }
+    .textfield {
+      width: 70%;
+    }
+  }
+}

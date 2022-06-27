@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../contextProviders/SocketProvider.js";
 import ChatEntry from "./chat/ChatEntry.js";
 import ChatMessage from "./chat/ChatMessage.js";
+import "../scss/components/Chat.scss";
 
 const Chat = () => {
   const socket = useContext(SocketContext);
@@ -28,7 +29,8 @@ const Chat = () => {
   }
 
   const messageList = messages.map((message, index) => {
-    return <ChatMessage key={index} data={message} />;
+    console.log(message.sender === socket.id);
+    return <ChatMessage key={index} data={message} isOwner={message.sender === socket.id} />;
   });
 
   return (

@@ -12,8 +12,9 @@ const ChatEntry = ({ sendMessage }) => {
         setMessage("");
       }}
     >
-      <input type="submit" value="Enter"></input>
+      <input className="submit" type="submit" value="Enter"></input>
       <input
+        className="textfield"
         type="text"
         onChange={(e) => {
           setMessage(e.currentTarget.value);
