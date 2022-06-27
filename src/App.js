@@ -6,7 +6,7 @@ import Chat from "./containers/Chat.js";
 
 import TestPage from "./pages/TestPage.js";
 
-import "./App.scss";
+import ".scss/components/App.scss";
 
 const App = () => {
   const [apiTest, setApiTest] = useState({
